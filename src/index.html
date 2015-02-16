@@ -2,15 +2,45 @@
 <html>
 <head lang="ru">
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/iconFont.min.css">
+    <link rel="stylesheet" href="css/metro-bootstrap.min.css">
+    <script type="text/javascript" src="js/main.js"></script>
     <title>Тест</title>
 </head>
-<body>
-    //= template/header.html
+<body class="metro bg-teal">
+    <div class="grid" id="container">
+        <div class="tile-container">
+            <div class="left">
+                <div class="tile bg-darkPink">
+                    <div class="tile-content icon">
+                        <i class="icon-puzzle"></i>
+                    </div>
+                    <div class="tile-status">
+                        <span class="name">Игры</span>
+                    </div>
+                </div>
+                <div class="tile bg-amber">
+                    <div class="tile-content icon">
+                        <i class="icon-book"></i>
+                    </div>
+                    <div class="tile-status">
+                        <span class="name">Книга отзывов</span>
+                    </div>
+                </div>
+            </div>
+            <div class="right fotorama" id="gallery"
+                 data-auto="false"
+                 data-loop="true"
+                 data-autoplay="true"
+                 data-fit="cover"
+                 data-nav="thumbs"
+                 data-hash="true"
+                 data-width="800"
+                 data-height="500">
 
-    <section class="content">
-        Content
-    </section>
-    
-    //= template/footer.html
+            </div>
+        </div>
+    </div>
 </body>
 </html>

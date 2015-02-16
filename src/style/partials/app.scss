@@ -1,0 +1,57 @@
+$main_container_width : 90%;
+$main_container_height : 90%;
+
+.tile-side {
+  display: inline-block;
+  height: 100%;
+  padding: 5px;
+}
+
+#container {
+  display: block;
+  position: absolute;
+  width: $main_container_width;
+  height: $main_container_height;
+  margin-left: (100%-$main_container_width)/2;
+  margin-top: (100%-$main_container_height)/3;
+
+  .tile-container {
+    display:inline-block;
+    height: 100%;
+    width: 100%;
+    .left {
+      @extend .tile-side;
+      width: 10%;
+      float: left;
+    }
+    .right {
+      @extend .tile-side;
+      width: 90%;
+      float: right;
+      padding-left: 20px;
+    }
+
+  }
+}
+
+#gallery {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery_text {
+  opacity: 0;
+  transition: 0.5s opacity linear;
+}
+.fotorama__active .gallery_text {
+  color: black;
+  background: rgba(255,255,255,0.7);
+  display: block;
+  width: 30%;
+  right: 0;
+  padding: 5px;
+  position: absolute;
+  opacity: 1;
+  transition: 0.5s opacity linear;
+}

@@ -15,6 +15,7 @@
   "dependencies": {
     "normalize.css": "*",
     "jquery": "2.*",
-    "angularjs": "1.*"
+    "angularjs": "1.*",
+    "fotorama": "4.6.*"
   }
 }

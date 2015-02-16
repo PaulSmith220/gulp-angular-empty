@@ -25,14 +25,16 @@ var path = {
     src: { //Пути откуда брать исходники
         html: 'src/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
         js: 'src/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
-        style: 'src/style/main.scss',
+        scss: 'src/style/main.scss',
+        css: 'src/style/partials/*.css',
         img: 'src/img/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
         fonts: 'src/fonts/**/*.*'
     },
     watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
         html: 'src/**/*.html',
         js: 'src/js/**/*.js',
-        style: 'src/style/**/*.scss',
+        scss: 'src/style/**/*.scss',
+        css: 'src/style/partials/*.css',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*'
     },
@@ -63,8 +65,19 @@ gulp.task('js:build', function() {
         .pipe(connect.reload());
 });
 
+gulp.task('scss:build', function() {
+    gulp.src(path.src.scss) //Выберем наш main.scss
+        .pipe(sourcemaps.init()) //То же самое что и с js
+        .pipe(sass()) //Скомпилируем
+        .pipe(prefixer()) //Добавим вендорные префиксы
+        .pipe(cssmin()) //Сожмем
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(path.build.css)) //И в build
+        .pipe(connect.reload());
+});
+
 gulp.task('css:build', function() {
-    gulp.src(path.src.style) //Выберем наш main.scss
+    gulp.src(path.src.css) //Выберем наш main.scss
         .pipe(sourcemaps.init()) //То же самое что и с js
         .pipe(sass()) //Скомпилируем
         .pipe(prefixer()) //Добавим вендорные префиксы
@@ -94,6 +107,7 @@ gulp.task('fonts:build', function() {
 gulp.task('build', [
     'html:build',
     'js:build',
+    'scss:build',
     'css:build',
     'fonts:build',
     'image:build'
@@ -103,8 +117,11 @@ gulp.task('watch', function(){
     watch([path.watch.html], function(event, cb) {
         gulp.start('html:build');
     });
-    watch([path.watch.style], function(event, cb) {
-        gulp.start('style:build');
+    watch([path.watch.scss], function(event, cb) {
+        gulp.start('scss:build');
+    });
+    watch([path.watch.css], function(event, cb) {
+        gulp.start('css:build');
     });
     watch([path.watch.js], function(event, cb) {
         gulp.start('js:build');
