@@ -11,8 +11,7 @@ $debug : false;
 }
 
 body .bg-image {
-//  background: url('../img/bg.jpg');
-  background: #647687 ;
+  background: url('../img/bg2.jpg');
   background-size: cover;
 //  filter: blur(10px);
   position: absolute;
@@ -68,8 +67,8 @@ body .bg-image {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  border: 10px solid $rama_color;
-  background: $rama_color;
+//  border: 10px solid $rama_color;
+//  background: $rama_color;
 }
 
 .gallery_text {
@@ -80,8 +79,8 @@ body .bg-image {
   color: black;
   background: rgba(255,255,255,0.7);
   display: block;
-  width: 30%;
-  right: 0;
+  right:0;
+  max-width: 300px;
   padding: 5px;
   position: absolute;
   opacity: 1;
@@ -125,5 +124,5 @@ body .bg-image {
 }
 
 .fotorama__stage__shaft {
-  background: $rama_color;
+//  background: $rama_color;
 }

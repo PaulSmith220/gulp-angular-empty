@@ -15,4 +15,19 @@ $(function() {
     $('.fotorama').fotorama({
         data: images
     });
+
+    $('.fotorama')
+
+        .on('fotorama:showend',stabGalleryText )
+;
+    function stabGalleryText() {
+        var full_w = $(".right").width();
+        $(".gallery_text, .fotorama__caption__wrap").each(function(){
+            var $img = $(this).parent().parent().find('img');
+            $(this).css('margin-right', (full_w/2 - $img.width()/2));
+        });
+    };
+    setInterval(stabGalleryText, 100);
+
+
 });
