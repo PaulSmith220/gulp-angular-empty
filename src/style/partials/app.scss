@@ -1,5 +1,8 @@
-$main_container_width : 90%;
-$main_container_height : 90%;
+$main_container_width : 95%;
+$main_container_height : 93%;
+$rama_color : #004050; // 1ba1e2
+
+$debug : false;
 
 .tile-side {
   display: inline-block;
@@ -7,13 +10,29 @@ $main_container_height : 90%;
   padding: 5px;
 }
 
+body .bg-image {
+//  background: url('../img/bg.jpg');
+  background: #647687 ;
+  background-size: cover;
+//  filter: blur(10px);
+  position: absolute;
+  left:0px;
+  top:0px;
+  width: 100%;
+  height: 100%;
+  z-index:0;
+}
+
 #container {
+  z-index:2;
   display: block;
   position: absolute;
   width: $main_container_width;
   height: $main_container_height;
   margin-left: (100%-$main_container_width)/2;
-  margin-top: (100%-$main_container_height)/3;
+  margin-top: (100%-$main_container_height)/4;
+
+
 
   .tile-container {
     display:inline-block;
@@ -21,14 +40,25 @@ $main_container_height : 90%;
     width: 100%;
     .left {
       @extend .tile-side;
-      width: 10%;
+      width: 25%;
       float: left;
+      @if $debug == true {
+        border: 1px solid black;
+      }
     }
     .right {
       @extend .tile-side;
-      width: 90%;
+      width: 73%;
+      height: 96%;
+      margin-top: 0.5%;
+      box-sizing: border-box;
+      margin-left: 2%;
       float: right;
-      padding-left: 20px;
+      text-align: right;
+      padding:0;
+      @if $debug == true {
+        border: 1px solid black;
+      }
     }
 
   }
@@ -38,6 +68,8 @@ $main_container_height : 90%;
   overflow: hidden;
   width: 100%;
   height: 100%;
+  border: 10px solid $rama_color;
+  background: $rama_color;
 }
 
 .gallery_text {
@@ -54,4 +86,44 @@ $main_container_height : 90%;
   position: absolute;
   opacity: 1;
   transition: 0.5s opacity linear;
+}
+
+.linked{
+  height: 48%;
+  width: 100%;
+
+  display: block;
+  float: left;
+  border-width: 10px;
+  border-style: solid;
+  background-size: cover;
+
+  .title_text {
+    float: right;
+    display: inline-block;
+
+    margin-right: 20px;
+    margin-top: 5px;
+    font-size: 32px;
+
+    i {
+      margin-left: 10px;
+    }
+  }
+}
+
+.game {
+  border-color: orange;
+  color: orange;
+  background-image: url('../img/game.jpg');
+}
+.book {
+  border-color: red;
+  color: red;
+  margin-top: 4%;
+  background-image: url('../img/pen.jpg');
+}
+
+.fotorama__stage__shaft {
+  background: $rama_color;
 }
