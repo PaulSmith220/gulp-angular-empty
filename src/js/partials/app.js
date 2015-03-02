@@ -29,5 +29,24 @@ $(function() {
     };
     setInterval(stabGalleryText, 100);
 
+    $(".linked.book").click(function() {
+       $(".recallWrap").fadeIn(500, function() {
+           $(".recallWrap textarea").focus();
+       });
+    });
+
+    $(".recallWrap #close").click(function() {
+        $(".recallWrap").fadeOut(500);
+    });
+
+    $(".linked.game").click(function() {
+        $(".gameWrap").fadeIn(500, function() {
+
+        });
+    });
+
+    $(".gameWrap #close").click(function() {
+        $(".gameWrap").fadeOut(500);
+    });
 
 });

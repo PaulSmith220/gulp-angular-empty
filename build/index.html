@@ -13,10 +13,10 @@
         <div class="tile-container">
             <div class="left">
                 <div class="linked game">
-                    <span class="title_text">Игры <i class="icon-puzzle"></i></span>
+                    <span class="title_text">Игра <i class="icon-puzzle"></i></span>
                 </div>
                 <div class="linked book">
-                    <span class="title_text">Отзывы <i class="icon-pencil"></i></span>
+                    <span class="title_text">Отзыв <i class="icon-pencil"></i></span>
                 </div>
             </div>
             <div class="right fotorama" id="gallery"
@@ -33,7 +33,27 @@
             </div>
         </div>
     </div>
+    <div class="recallWrap">
+        <div class="recallDialog">
+            <h2>Оставьте свой отзыв
+                <i class="icon-cancel-2" id="close" title="Отмена"></i>
+            <i class="icon-checkmark"></i>
 
+            </h2>
+            <hr/>
+            <textarea name="text" placeholder="Ваш отзыв"></textarea>
+        </div>
+    </div>
+
+    <div class="gameWrap">
+        <div class="gameDialog">
+            <h2>Игра "Сложи пазл"
+                <i class="icon-cancel-2" id="close" title="Отмена"></i>
+            </h2>
+            <hr/>
+            <canvas id="myCanvas"></canvas>
+        </div>
+    </div>
 <div class="bg-image"></div>
 </body>
 </html>

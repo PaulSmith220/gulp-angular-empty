@@ -8,5 +8,6 @@
 /*
  * Custom
  */
+//= partials/puzzle_game.js
 //= partials/gallery.js
 //= partials/app.js
